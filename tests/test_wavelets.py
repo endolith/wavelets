@@ -1,6 +1,6 @@
 from __future__ import division, print_function
 
-from nose.tools import *
+from nose.tools import assert_equal, assert_almost_equal, assert_less
 import numpy.testing as npt
 
 import numpy as np
