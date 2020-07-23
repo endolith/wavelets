@@ -5,7 +5,7 @@ import scipy
 import scipy.signal
 import scipy.optimize
 import scipy.special
-from scipy.misc import factorial
+from scipy.spacial import factorial
 
 __all__ = ['Morlet', 'Paul', 'DOG', 'Ricker', 'Marr', 'Mexican_hat']
 
