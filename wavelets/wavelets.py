@@ -191,7 +191,7 @@ class Paul(object):
         Returns the scale
         """
         # Solve 4 * np.pi * scale / (2 * m + 1) for s
-        return period * (2 * self.m + 1) / (4 * np.pi)        
+        return period * (2 * self.m + 1) / (4 * np.pi)
 
     # Frequency representation
     def frequency(self, w, s=1.0):

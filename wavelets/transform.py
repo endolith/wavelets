@@ -204,6 +204,7 @@ class WaveletTransform(object):
     The equivalent Fourier period is defined as where the wavelet
     power spectrum reaches its maximum and can be found analytically.
     """
+
     def __init__(self, data=None, time=None, dt=1,
                  dj=0.125, wavelet=Morlet(), unbias=False,
                  mask_coi=False, frequency=False, axis=-1):
