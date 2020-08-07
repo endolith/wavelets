@@ -1,5 +1,3 @@
-from __future__ import division
-
 import numpy as np
 import scipy
 import scipy.signal
@@ -10,7 +8,7 @@ from scipy.special import factorial
 __all__ = ['Morlet', 'Paul', 'DOG', 'Ricker', 'Marr', 'Mexican_hat']
 
 
-class Morlet(object):
+class Morlet:
     def __init__(self, w0=6):
         """w0 is the nondimensional frequency constant. If this is
         set too low then the wavelet does not sample very well: a
@@ -137,7 +135,7 @@ class Morlet(object):
         return 2 ** .5 * s
 
 
-class Paul(object):
+class Paul:
     def __init__(self, m=4):
         """Initialise a Paul wavelet function of order `m`.
         """
@@ -238,7 +236,7 @@ class Paul(object):
         return s / 2 ** .5
 
 
-class DOG(object):
+class DOG:
     def __init__(self, m=2):
         """Initialise a Derivative of Gaussian wavelet of order `m`."""
         if m == 2:

@@ -1,5 +1,3 @@
-from __future__ import division, print_function
-
 from nose.tools import assert_equal, assert_almost_equal, assert_less
 import numpy.testing as npt
 

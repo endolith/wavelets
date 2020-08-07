@@ -1,5 +1,3 @@
-from __future__ import division
-
 import numpy as np
 import scipy
 import scipy.signal
@@ -146,7 +144,7 @@ def cwt_freq(data, wavelet, widths, dt, axis):
         return out[slices]
 
 
-class WaveletTransform(object):
+class WaveletTransform:
     """
     Sx.y are references to section x.y in Torrence and Compo,
     A Practical Guide to Wavelet Analysis (BAMS, 1998)
