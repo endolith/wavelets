@@ -50,7 +50,7 @@ ax.set_yscale('log')
 fig.savefig('test_wavelet_power_spectrum.png')
 ```
 
-See the [tests](./tests.py) for more plotting examples.
+See the [tests](./tests/test_wavelets.py) for more plotting examples.
 
 #### What wavelet functions can I use? ####
 
