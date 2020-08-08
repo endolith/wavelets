@@ -5,6 +5,7 @@ import scipy
 import scipy.signal
 import scipy.optimize
 import scipy.special
+import scipy.fft
 
 from .wavelets import Morlet
 
@@ -114,9 +115,9 @@ def cwt_freq(data, wavelet, widths, dt, axis):
     pN = int(2 ** np.ceil(np.log2(N)))
     # N.B. padding in fft adds zeros to the *end* of the array,
     # not equally either end.
-    fft_data = scipy.fft(data, n=pN, axis=axis)
+    fft_data = scipy.fft.fft(data, n=pN, axis=axis)
     # frequencies
-    w_k = np.fft.fftfreq(pN, d=dt) * 2 * np.pi
+    w_k = scipy.fft.fftfreq(pN, d=dt) * 2 * np.pi
 
     # sample wavelet and normalise
     norm = (2 * np.pi * widths / dt) ** .5
@@ -130,8 +131,8 @@ def cwt_freq(data, wavelet, widths, dt, axis):
     slices = [slice(None)] + [None for _ in data.shape]
     slices[axis] = slice(None)
 
-    out = scipy.ifft(fft_data[None] * wavelet_data.conj()[slices],
-                     n=pN, axis=axis)
+    out = scipy.fft.ifft(fft_data[None] * wavelet_data.conj()[slices],
+                         n=pN, axis=axis)
 
     # remove zero padding
     slices = [slice(None) for _ in out.shape]
@@ -365,7 +366,7 @@ class WaveletTransform(object):
         N.B the frequencies returned by numpy are adimensional, on
         the interval [-1/2, 1/2], so we multiply by 2 * pi.
         """
-        return 2 * np.pi * np.fft.fftfreq(self.N, self.dt)
+        return 2 * np.pi * scipy.fft.fftfreq(self.N, self.dt)
 
     @property
     def wavelet_transform(self):
