@@ -130,6 +130,7 @@ def cwt_freq(data, wavelet, widths, dt, axis):
     # perform the convolution in frequency space
     slices = [slice(None)] + [None for _ in data.shape]
     slices[axis] = slice(None)
+    slices = tuple(slices)
 
     out = scipy.fft.ifft(fft_data[None] * wavelet_data.conj()[slices],
                          n=pN, axis=axis)
@@ -137,6 +138,7 @@ def cwt_freq(data, wavelet, widths, dt, axis):
     # remove zero padding
     slices = [slice(None) for _ in out.shape]
     slices[axis] = slice(None, N)
+    slices = tuple(slices)
 
     if data.ndim == 1:
         return out[slices].squeeze()
